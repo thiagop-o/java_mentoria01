@@ -5,12 +5,13 @@ import calculadoras.CalculadoraPadrao;
 import java.util.Scanner;
 
 public class Main {
-    static Scanner entrada = new Scanner(System.in);
+
 
 
 
     public static void main(String[] args) {
         boolean continuar;
+        Scanner entrada = new Scanner(System.in);
 
         String opcaoMenu;
         int validacao = 0;
@@ -32,7 +33,6 @@ public class Main {
                     validacao = Integer.parseInt(opcaoMenu);
                     if (validacao <= 0 || validacao >= 4)
                         opcaoMenu = digitarOpcaoValida();
-
                 }catch (Exception e){
                     validacao = 0;
                     System.out.printf("Você Digitou %s é não é um valor numerico e/ou inteiro!!%n",opcaoMenu);
@@ -54,13 +54,15 @@ public class Main {
 
             System.out.print("\nDeseja utilizar o programa novamente???? " +
                     "\n( S | N ): ");
-            opcaoMenu = entrada.nextLine().toLowerCase();
+            opcaoMenu = entrada.next().toLowerCase();
             continuar = opcaoMenu.equals("s");
         }while (continuar);
 
-    }
+        System.out.println("Vejo você em breve!!!");
 
+    }
     private static String digitarOpcaoValida(){
+        Scanner entrada = new Scanner(System.in);
         System.out.print("Por favor, digitar uma opção válida: ");
         return entrada.nextLine();
     }
