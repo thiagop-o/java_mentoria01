@@ -1,0 +1,206 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CalculoImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">calculos</a>
+</div>
+
+<h1>Coverage Summary for Class: CalculoImpl (calculos)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CalculoImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (57/57)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package calculos;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import java.util.Scanner;
+<i class="no-highlight">4</i>&nbsp;
+<b class="fc"><i class="no-highlight">5</i>&nbsp;public class CalculoImpl implements ICalculo{</b>
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;    public void realizarCalculo(String operacao){
+<b class="fc"><i class="no-highlight">8</i>&nbsp;        Scanner scan = new Scanner(System.in);</b>
+<i class="no-highlight">9</i>&nbsp;        boolean continuar;
+<i class="no-highlight">10</i>&nbsp;        String opcaoMenu;
+<i class="no-highlight">11</i>&nbsp;        String pergunta1;
+<b class="fc"><i class="no-highlight">12</i>&nbsp;        double[] numero = new double[2];</b>
+<i class="no-highlight">13</i>&nbsp;        do {
+<b class="fc"><i class="no-highlight">14</i>&nbsp;            if(operacao.equals(&quot;quadrado&quot;)) pergunta1 = &quot;Digite um numero para área do quadrado: &quot;;</b>
+<b class="fc"><i class="no-highlight">15</i>&nbsp;            else if (operacao.equals(&quot;circulo&quot;)) pergunta1 = &quot;Digite o valor do raio: &quot;;</b>
+<b class="fc"><i class="no-highlight">16</i>&nbsp;            else pergunta1 = &quot;Digite o valor do primeiro numero: &quot;;</b>
+<b class="fc"><i class="no-highlight">17</i>&nbsp;            System.out.print(pergunta1);</b>
+<b class="fc"><i class="no-highlight">18</i>&nbsp;            numero[0] = scan.nextDouble();</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;            if(!operacao.equals(&quot;quadrado&quot;) &amp;&amp; !operacao.equals(&quot;circulo&quot;)){</b>
+<b class="fc"><i class="no-highlight">20</i>&nbsp;                System.out.print(&quot;Digite o valor do segundo numero: &quot;);</b>
+<b class="fc"><i class="no-highlight">21</i>&nbsp;                numero[1] = scan.nextDouble();</b>
+<i class="no-highlight">22</i>&nbsp;            }else{
+<b class="fc"><i class="no-highlight">23</i>&nbsp;                numero[1] = 1;</b>
+<i class="no-highlight">24</i>&nbsp;            }
+<i class="no-highlight">25</i>&nbsp;
+<b class="fc"><i class="no-highlight">26</i>&nbsp;            deveCalcular(operacao, numero[0], numero[1]);</b>
+<i class="no-highlight">27</i>&nbsp;
+<b class="fc"><i class="no-highlight">28</i>&nbsp;            System.out.print(&quot;\nDeseja realizar esta operação novamente???? &quot; +</b>
+<i class="no-highlight">29</i>&nbsp;                    &quot;\n( S | N ): &quot;);
+<b class="fc"><i class="no-highlight">30</i>&nbsp;            opcaoMenu = scan.next().toLowerCase();</b>
+<b class="fc"><i class="no-highlight">31</i>&nbsp;            continuar = opcaoMenu.equals(&quot;s&quot;);</b>
+<b class="fc"><i class="no-highlight">32</i>&nbsp;        }while (continuar);</b>
+<b class="fc"><i class="no-highlight">33</i>&nbsp;        scan.close();</b>
+<i class="no-highlight">34</i>&nbsp;    }
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;
+<i class="no-highlight">37</i>&nbsp;    @Override
+<i class="no-highlight">38</i>&nbsp;    public void deveCalcular(String opcao, double numero01, double numero02) {
+<i class="no-highlight">39</i>&nbsp;        double result;
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        switch (opcao){</b>
+<i class="no-highlight">41</i>&nbsp;            case &quot;soma&quot;:
+<b class="fc"><i class="no-highlight">42</i>&nbsp;                result = numero01 + numero02;</b>
+<b class="fc"><i class="no-highlight">43</i>&nbsp;                System.out.println(&quot;O Resultado da Soma é: &quot; + result);</b>
+<b class="fc"><i class="no-highlight">44</i>&nbsp;                break;</b>
+<i class="no-highlight">45</i>&nbsp;            case &quot;subtração&quot;:
+<b class="fc"><i class="no-highlight">46</i>&nbsp;                result = numero01 - numero02;</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;                System.out.println(&quot;O Resultado da Subtração é: &quot; + result);</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;                break;</b>
+<i class="no-highlight">49</i>&nbsp;            case &quot;multiplicação&quot;:
+<b class="fc"><i class="no-highlight">50</i>&nbsp;                result = numero01 * numero02;</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;                System.out.println(&quot;O Resultado da Multiplicacão é: &quot; + result);</b>
+<b class="fc"><i class="no-highlight">52</i>&nbsp;                break;</b>
+<i class="no-highlight">53</i>&nbsp;            case &quot;divisão&quot;:
+<b class="fc"><i class="no-highlight">54</i>&nbsp;                deveDividir(numero01,numero02);</b>
+<b class="fc"><i class="no-highlight">55</i>&nbsp;                break;</b>
+<i class="no-highlight">56</i>&nbsp;            case &quot;potenciação&quot;:
+<b class="fc"><i class="no-highlight">57</i>&nbsp;                result = Math.pow(numero01,numero02);</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;                System.out.println(&quot;O Resultado da Potenciação é: &quot; + result);</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;                break;</b>
+<i class="no-highlight">60</i>&nbsp;            case &quot;imc&quot;:
+<b class="fc"><i class="no-highlight">61</i>&nbsp;                deveCalcularImc(numero01,numero02);</b>
+<b class="fc"><i class="no-highlight">62</i>&nbsp;                break;</b>
+<i class="no-highlight">63</i>&nbsp;            case &quot;circulo&quot;:
+<b class="fc"><i class="no-highlight">64</i>&nbsp;                result = Math.PI*Math.pow(numero01,2);</b>
+<b class="fc"><i class="no-highlight">65</i>&nbsp;                System.out.printf(&quot;A área do circulo é: %.2f cm²%n&quot; , result);</b>
+<b class="fc"><i class="no-highlight">66</i>&nbsp;                break;</b>
+<i class="no-highlight">67</i>&nbsp;            case &quot;quadrado&quot;:
+<b class="fc"><i class="no-highlight">68</i>&nbsp;                result = Math.pow(numero01,2);</b>
+<b class="fc"><i class="no-highlight">69</i>&nbsp;                System.out.printf(&quot;A área do quadrado é: %.2f cm²%n&quot; , result);</b>
+<b class="fc"><i class="no-highlight">70</i>&nbsp;                break;</b>
+<i class="no-highlight">71</i>&nbsp;            case &quot;retangulo&quot;:
+<b class="fc"><i class="no-highlight">72</i>&nbsp;                result = numero01 * numero02;</b>
+<b class="fc"><i class="no-highlight">73</i>&nbsp;                System.out.printf(&quot;A área do retangulo é: %.2f cm²%n&quot; , result);</b>
+<i class="no-highlight">74</i>&nbsp;                break;
+<i class="no-highlight">75</i>&nbsp;        }
+<i class="no-highlight">76</i>&nbsp;
+<i class="no-highlight">77</i>&nbsp;    }
+<i class="no-highlight">78</i>&nbsp;
+<i class="no-highlight">79</i>&nbsp;    private void deveCalcularImc(double numero1, double numero2){
+<b class="fc"><i class="no-highlight">80</i>&nbsp;        double result = numero1/Math.pow(numero2,2);</b>
+<i class="no-highlight">81</i>&nbsp;
+<b class="fc"><i class="no-highlight">82</i>&nbsp;        System.out.printf(&quot;Seu IMC é: %.2f%n&quot;, result);</b>
+<b class="fc"><i class="no-highlight">83</i>&nbsp;        if (result &lt; 16) System.out.println(&quot;MAGREZA GRAU III&quot;);</b>
+<b class="fc"><i class="no-highlight">84</i>&nbsp;        else if (result &lt; 17) System.out.println(&quot;MAGREZA GRAU II&quot;);</b>
+<b class="fc"><i class="no-highlight">85</i>&nbsp;        else if (result &lt; 18.5) System.out.println(&quot;MAGREZA GRAU I&quot;);</b>
+<b class="fc"><i class="no-highlight">86</i>&nbsp;        else if (result &lt; 25) System.out.println(&quot;NORMAL&quot;);</b>
+<b class="fc"><i class="no-highlight">87</i>&nbsp;        else if (result &lt; 30) System.out.println(&quot;PRE-OBESO&quot;);</b>
+<b class="fc"><i class="no-highlight">88</i>&nbsp;        else if (result &lt; 35) System.out.println(&quot;OBESIDADE GRAU I&quot;);</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        else if (result &lt; 40) System.out.println(&quot;OBESIDADE GRAU II&quot;);</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;        else if (result &gt;= 40) System.out.println(&quot;OBESIDADE GRAU III&quot;);</b>
+<i class="no-highlight">91</i>&nbsp;    }
+<i class="no-highlight">92</i>&nbsp;
+<i class="no-highlight">93</i>&nbsp;    private void deveDividir(double numero1, double numero2){
+<b class="fc"><i class="no-highlight">94</i>&nbsp;        if (numero2 == 0) {</b>
+<b class="fc"><i class="no-highlight">95</i>&nbsp;            System.out.println(&quot;Impossivel dividir por 0&quot;);</b>
+<i class="no-highlight">96</i>&nbsp;        }else{
+<b class="fc"><i class="no-highlight">97</i>&nbsp;            double result = numero1/numero2;</b>
+<b class="fc"><i class="no-highlight">98</i>&nbsp;            System.out.println(&quot;O Resultado da Divisão é: &quot; + result);</b>
+<i class="no-highlight">99</i>&nbsp;        }
+<i class="no-highlight">100</i>&nbsp;    }
+<i class="no-highlight">101</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-01-19 11:25</div>
+</div>
+</body>
+</html>

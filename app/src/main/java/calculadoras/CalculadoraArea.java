@@ -5,9 +5,9 @@ import calculos.CalculoImpl;
 import java.util.Scanner;
 
 public class CalculadoraArea{
-    static Scanner entrada = new Scanner(System.in);
     public static void execute(){
         CalculoImpl calc = new CalculoImpl();
+        Scanner entrada = new Scanner(System.in);
 
         boolean continuar;
 
@@ -32,9 +32,10 @@ public class CalculadoraArea{
                     validacao = 0;
                     System.out.printf("Você Digitou %s é não é um valor numerico e/ou inteiro!!%n",opcaoMenu);
                     opcaoMenu = digitarOpcaoValida();
+
                 }
             }while(validacao <= 0 || validacao >= 6);
-
+            validacao = Integer.parseInt(opcaoMenu);
             switch (validacao){
                 case 1:
                     calc.realizarCalculo("circulo");
@@ -57,6 +58,7 @@ public class CalculadoraArea{
 
     private static String digitarOpcaoValida(){
         System.out.print("Por favor, digitar uma opção válida: ");
+        Scanner entrada = new Scanner(System.in);
         return entrada.nextLine();
     }
 }

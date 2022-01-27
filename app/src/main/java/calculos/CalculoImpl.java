@@ -34,7 +34,6 @@ public class CalculoImpl implements ICalculo{
     }
 
 
-
     @Override
     public void deveCalcular(String opcao, double numero01, double numero02) {
         double result;
@@ -87,8 +86,8 @@ public class CalculoImpl implements ICalculo{
         else if (result < 25) System.out.println("NORMAL");
         else if (result < 30) System.out.println("PRE-OBESO");
         else if (result < 35) System.out.println("OBESIDADE GRAU I");
-        else if (result < 40) System.out.println("MAGREZA GRAU II");
-        else if (result >= 40) System.out.println("MAGREZA GRAU III");
+        else if (result < 40) System.out.println("OBESIDADE GRAU II");
+        else if (result >= 40) System.out.println("OBESIDADE GRAU III");
     }
 
     private void deveDividir(double numero1, double numero2){

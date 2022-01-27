@@ -33,7 +33,7 @@ public class CalculadoraPadrao {
                     opcaoMenu = digitarOpcaoValida();
                 }
             }while(validacao <= 0 || validacao >= 6);
-
+            validacao = Integer.parseInt(opcaoMenu);
             switch (validacao){
                 case 1:
                     calc.realizarCalculo("soma");
